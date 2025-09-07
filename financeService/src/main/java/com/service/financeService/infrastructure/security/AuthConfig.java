@@ -53,7 +53,9 @@ public class AuthConfig {
                         .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html", "/error",
                                 "/api/finance/**",
                                 "/api/v1/finance/**",
-                                "/api/order-details/**").permitAll()
+                                "/api/order-details/**",
+                                "/api/v1/payment-employees/**",
+                                "/api/v1/bills").permitAll()
                         .anyRequest().authenticated())
                 .oauth2ResourceServer(oauth2 -> oauth2
                         .jwt(jwtCustomizer -> jwtCustomizer
