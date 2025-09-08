@@ -19,5 +19,5 @@ public class BillDomainEntity {
     private UUID orderId;
     private BigDecimal amount;
     private LocalDateTime paymentDate;
-    private String paymentMethod;
+    private PaymentMethodEnum paymentMethod;
 }

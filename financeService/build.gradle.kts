@@ -45,7 +45,7 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.security:spring-security-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-
+    implementation("io.hypersistence:hypersistence-utils-hibernate-60:3.7.1")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0")
 }
 

@@ -1,5 +1,6 @@
 package com.service.financeService.bill.infrastructure.inputadapter.dto;
 
+import com.service.financeService.bill.domain.model.PaymentMethodEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,5 +20,5 @@ public class BillResponseDto {
     private UUID orderId;
     private BigDecimal amount;
     private LocalDateTime paymentDate;
-    private String paymentMethod;
+    private PaymentMethodEnum paymentMethod;
 }
