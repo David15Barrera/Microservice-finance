@@ -55,7 +55,8 @@ public class AuthConfig {
                                 "/api/v1/finance/**",
                                 "/api/order-details/**",
                                 "/api/v1/payment-employees/**",
-                                "/api/v1/bills").permitAll()
+                                "/api/v1/bills",
+                                "/api/v1/reports/weekly-closure").permitAll()
                         .anyRequest().authenticated())
                 .oauth2ResourceServer(oauth2 -> oauth2
                         .jwt(jwtCustomizer -> jwtCustomizer

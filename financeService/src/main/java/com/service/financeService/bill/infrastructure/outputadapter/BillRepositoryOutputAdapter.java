@@ -15,7 +15,8 @@ import java.util.stream.Collectors;
 @Component
 @RequiredArgsConstructor
 public class BillRepositoryOutputAdapter implements SaveBillOutputPort, UpdateBillOutputPort,
-        DeleteBillOutputPort, FindBillByIdOutputPort, FindingAllBillOutputPort {
+        DeleteBillOutputPort, FindBillByIdOutputPort, FindingAllBillOutputPort,
+        FindBillsByDateRangeOutputPort{
 
     private final BillDBRepository repository;
 
@@ -73,5 +74,13 @@ public class BillRepositoryOutputAdapter implements SaveBillOutputPort, UpdateBi
     @Override
     public List<BillDomainEntity> findAll() {
         return repository.findAll().stream().map(this::toDomain).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<BillDomainEntity> findByPaymentDateBetween(LocalDateTime start, LocalDateTime end) {
+        return repository.findByPaymentDateBetween(start, end)
+                .stream()
+                .map(this::toDomain)
+                .collect(Collectors.toList());
     }
 }
