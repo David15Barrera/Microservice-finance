@@ -20,4 +20,7 @@ public class BillDomainEntity {
     private BigDecimal amount;
     private LocalDateTime paymentDate;
     private PaymentMethodEnum paymentMethod;
+
+    private OrderDomainEntity order;
+    private ReservasDomainEntity reservation;
 }

@@ -1,5 +1,9 @@
 package com.service.financeService.bill.application.usecase.get;
 
+import com.service.financeService.bill.application.ports.output.FindOrderOutputPort;
+import com.service.financeService.bill.application.ports.output.FindReservationOutputPort;
+import com.service.financeService.bill.domain.model.OrderDomainEntity;
+import com.service.financeService.bill.domain.model.ReservasDomainEntity;
 import com.service.financeService.common.annotations.UseCase;
 import com.service.financeService.bill.application.ports.input.GetBillByIdInputPort;
 import com.service.financeService.bill.application.ports.output.FindBillByIdOutputPort;
@@ -15,10 +19,14 @@ import java.util.Optional;
 public class GetBillByIdUseCase implements GetBillByIdInputPort {
 
     private final FindBillByIdOutputPort findByIdPort;
+    private final FindOrderOutputPort findOrderOutputPort;
+    private final FindReservationOutputPort findReservationOutputPort;
 
     @Override
     public BillDomainEntity getById(Integer id) {
-        Optional<BillDomainEntity> opt = findByIdPort.findById(id);
-        return opt.orElseThrow(() -> new RuntimeException("Bill not found"));
+        BillDomainEntity bill = findByIdPort.findById(id)
+                .orElseThrow(() -> new RuntimeException("Bill not found" + id));
+
+        return bill;
     }
 }

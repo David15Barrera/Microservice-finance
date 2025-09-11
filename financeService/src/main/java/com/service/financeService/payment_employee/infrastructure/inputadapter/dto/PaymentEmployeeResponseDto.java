@@ -1,5 +1,6 @@
 package com.service.financeService.payment_employee.infrastructure.inputadapter.dto;
 
+import com.service.financeService.payment_employee.infrastructure.outputadapter.feing.dto.CustomerResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,4 +22,6 @@ public class PaymentEmployeeResponseDto {
     private LocalDate startDate;
     private LocalDate endDate;
     private LocalDateTime paymentDate;
+
+    private CustomerResponse employee;
 }

@@ -1,6 +1,8 @@
 package com.service.financeService.bill.infrastructure.inputadapter.dto;
 
 import com.service.financeService.bill.domain.model.PaymentMethodEnum;
+import com.service.financeService.bill.infrastructure.outputadapter.feign.dto.OrderResponse;
+import com.service.financeService.bill.infrastructure.outputadapter.feign.dto.ReservasResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,10 +17,13 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 public class BillResponseDto {
-    private Integer id;
-    private UUID reservationId;
-    private UUID orderId;
-    private BigDecimal amount;
-    private LocalDateTime paymentDate;
-    private PaymentMethodEnum paymentMethod;
+    public Integer id;
+    public UUID reservationId;
+    public UUID orderId;
+    public BigDecimal amount;
+    public LocalDateTime paymentDate;
+    public PaymentMethodEnum paymentMethod;
+
+    public OrderResponse order;
+    public ReservasResponse reservation;
 }

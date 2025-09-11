@@ -1,5 +1,7 @@
 package com.service.financeService.bill.application.usecase.listhotels;
 
+import com.service.financeService.bill.application.ports.output.FindOrderOutputPort;
+import com.service.financeService.bill.application.ports.output.FindReservationOutputPort;
 import com.service.financeService.common.annotations.UseCase;
 import com.service.financeService.bill.application.ports.input.ListAllBillInputPort;
 import com.service.financeService.bill.application.ports.output.FindingAllBillOutputPort;
@@ -15,9 +17,13 @@ import java.util.List;
 public class ListAllBillUseCase implements ListAllBillInputPort {
 
     private final FindingAllBillOutputPort findingAllPort;
+    private final FindOrderOutputPort findOrderOutputPort;
+    private final FindReservationOutputPort findReservationOutputPort;
 
     @Override
     public List<BillDomainEntity> listAll() {
-        return findingAllPort.findAll();
+        List<BillDomainEntity> bills = findingAllPort.findAll();
+
+     return bills;
     }
 }
