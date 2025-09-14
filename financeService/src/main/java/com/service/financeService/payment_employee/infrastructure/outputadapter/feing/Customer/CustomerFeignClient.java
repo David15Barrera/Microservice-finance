@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.UUID;
 
-@FeignClient(name = "customerClient", url = "http://localhost:8081/api/auth-identity", fallbackFactory = CustomerFeignClientFallbackFactory.class)
+@FeignClient(name = "customerClient", url = "https://microservice-authemploye.onrender.com/api/auth-identity", fallbackFactory = CustomerFeignClientFallbackFactory.class)
 public interface CustomerFeignClient {
     @GetMapping("/v1/employees/{id}")
     CustomerResponse getCustomerById(@PathVariable("id") UUID id);
